@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul Silver | Joias em Prata para Todos</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #7f8c8d;
+      --accent-color: #bdc3c7;
+      --gold-accent: #d4af37;
+      --silver-accent: #c0c0c0;
+      --light-color: #f8f9fa;
+      --dark-color: #1a252f;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --success-color: #27ae60;
+      --error-color: #e74c3c;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--light-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      line-height: 1.3;
+    }
+
+    /* ===== NAVBAR AVANÇADA ===== */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: 0.75rem 0;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 1.8rem);
+      letter-spacing: 1.5px;
+      color: var(--primary-color) !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .navbar-brand .brand-icon {
+      color: var(--gold-accent);
+      font-size: 1.5em;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-dark) !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 0.25rem;
+      transition: var(--transition);
+      position: relative;
+      border-radius: 8px;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+      color: var(--primary-color) !important;
+    }
+
+    .nav-link.active {
+      color: var(--gold-accent) !important;
+      font-weight: 600;
+    }
+
+    .nav-link.active::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background: var(--gold-accent);
+      border-radius: 2px;
+    }
+
+    .nav-cart {
+      position: relative;
+      margin-left: 0.5rem;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--error-color);
+      color: white;
+      font-size: 0.7rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* ===== MEGAMENU ===== */
+    .dropdown-mega {
+      position: static !important;
+    }
+
+    .dropdown-menu-mega {
+      width: 100%;
+      left: 0 !important;
+      right: 0 !important;
+      padding: 2rem;
+      border: none;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background: white;
+      margin-top: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .mega-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .mega-category h6 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold-accent);
+    }
+
+    .mega-category a {
+      display: block;
+      color: var(--text-light);
+      text-decoration: none;
+      padding: 0.25rem 0;
+      transition: var(--transition);
+    }
+
+    .mega-category a:hover {
+      color: var(--gold-accent);
+      padding-left: 5px;
+    }
+
+    /* ===== HERO COM SLIDER ===== */
+    .hero-slider {
+      height: 100vh;
+      max-height: 800px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px !important;
+      height: 12px !important;
+      background: white !important;
+      opacity: 0.5 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1 !important;
+      background: var(--gold-accent) !important;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: white !important;
+      background: rgba(0,0,0,0.3);
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50%;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 1.5rem !important;
+    }
+
+    /* ===== FEATURES ===== */
+    .features-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      height: 100%;
+      background: var(--light-color);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-accent);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    /* ===== CATEGORIAS DESTAQUE ===== */
+    .categories-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .category-card {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      height: 300px;
+      cursor: pointer;
+    }
+
+    .category-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .category-card:hover .category-image {
+      transform: scale(1.1);
+    }
+
+    .category-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+    }
+
+    .category-title {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* ===== PRODUTOS COM FILTRO AVANÇADO ===== */
+    .products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .sort-filter {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sort-select {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: white;
+      color: var(--text-dark);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .view-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .view-btn.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* Grid vs List View */
+    .products-grid.grid-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .products-grid.list-view .product-card {
+      display: flex;
+      flex-direction: row;
+      max-width: 100%;
+    }
+
+    .products-grid.list-view .product-image-container {
+      width: 300px;
+      height: auto;
+    }
+
+    .products-grid.list-view .product-content {
+      flex: 1;
+    }
+
+    /* ===== SISTEMA DE AVALIAÇÕES ===== */
+    .reviews-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .review-card {
+      background: var(--light-color);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+
+    .review-stars {
+      color: var(--gold-accent);
+      margin: 0.5rem 0;
+    }
+
+    /* ===== BLOG SECTION ===== */
+    .blog-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== INSTAGRAM FEED ===== */
+    .instagram-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .instagram-item {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+
+    .instagram-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .instagram-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .instagram-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(212, 175, 55, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .instagram-item:hover .instagram-overlay {
+      opacity: 1;
+    }
+
+    /* ===== FOOTER AVANÇADO ===== */
+    .footer-main {
+      background: var(--dark-color);
+      color: white;
+      padding: 5rem 0 0;
+    }
+
+    .footer-newsletter {
+      background: var(--gradient-primary);
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+    }
+
+    .newsletter-input {
+      padding: 1rem;
+      border: none;
+      border-radius: 50px 0 0 50px;
+      flex: 1;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .newsletter-btn {
+      padding: 1rem 2rem;
+      border: none;
+      background: var(--gold-accent);
+      color: var(--primary-color);
+      border-radius: 0 50px 50px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+      background: #e6bd2e;
+    }
+
+    .payment-methods {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .payment-icon {
+      width: 50px;
+      height: 30px;
+      background: white;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+    }
+
+    /* ===== MODAL DE RÁPIDO VIEW ===== */
+    .quick-view-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .quick-view-modal.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .quick-view-content {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: var(--border-radius);
+      position: relative;
+    }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: transparent;
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .breadcrumb-item a {
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+      color: var(--gold-accent);
+    }
+
+    /* ===== WISHLIST ===== */
+    .wishlist-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .wishlist-btn:hover,
+    .wishlist-btn.active {
+      color: var(--error-color);
+      transform: scale(1.1);
+    }
+
+    /* ===== COMPARE PRODUCTS ===== */
+    .compare-btn {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .compare-btn:hover {
+      color: var(--success-color);
+      transform: scale(1.1);
+    }
+
+    /* ===== STOCK STATUS ===== */
+    .stock-status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .in-stock {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .low-stock {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .out-of-stock {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .stock-progress {
+      height: 8px;
+      background: #e9ecef;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .stock-progress-bar {
+      height: 100%;
+      background: var(--success-color);
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+
+    /* ===== LOADING SKELETON ===== */
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+      border-radius: 4px;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .skeleton-card {
+      height: 400px;
+      border-radius: var(--border-radius);
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    .dark-mode .navbar {
+      background: rgba(30, 30, 30, 0.95);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .dark-mode .card {
+      background: #1e1e1e;
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
+      color: var(--text-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dark-mode .theme-toggle {
+      color: #e0e0e0;
+    }
+
+    /* ===== RESPONSIVIDADE EXTREMA ===== */
+    @media (max-width: 576px) {
+      .hero-slider {
+        height: 70vh;
+      }
+      
+      .products-grid.list-view .product-card {
+        flex-direction: column;
+      }
+      
+      .products-grid.list-view .product-image-container {
+        width: 100%;
+        height: 250px;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-input,
+      .newsletter-btn {
+        border-radius: 50px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dropdown-menu-mega {
+        position: static !important;
+        transform: none !important;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+      
+      .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1320px;
+      }
+    }
+
+    /* ===== ANIMAÇÕES ===== */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* ===== TOOLTIPS ===== */
+    [data-tooltip] {
+      position: relative;
+    }
+
+    [data-tooltip]:before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+
+    [data-tooltip]:hover:before {
+      opacity: 1;
+      visibility: visible;
+      bottom: calc(100% + 5px);
+    }
+
+    /* ===== CUSTOM SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold-accent);
+      border-radius: 5px;
+    }
+
+    .dark-mode ::-webkit-scrollbar-track {
+      background: #2c2c2c;
+    }
+
+    .dark-mode ::-webkit-scrollbar-thumb {
+      background: var(--gold-accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle position-fixed bottom-3 start-3 z-3" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-modal">
+    <div class="quick-view-content">
+      <button class="btn-close position-absolute top-0 end-0 m-3" onclick="closeQuickView()"></button>
+      <div class="quick-view-body p-4">
+        <!-- Conteúdo será preenchido via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR COM MEGAMENU -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-gem brand-icon"></i>
+        <span>Soul Silver</span>
+      </a>
+
+      <!-- Mobile Cart -->
+      <div class="d-lg-none">
+        <button class="btn nav-link position-relative" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge">0</span>
+        </button>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Início</a>
+          </li>
+          
+          <!-- Megamenu Categorias -->
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              Categorias
+            </a>
+            <div class="dropdown-menu dropdown-menu-mega">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3 mega-category">
+                    <h6>Feminino</h6>
+                    <a href="#brincos-f">Brincos</a>
+                    <a href="#colares-f">Colares</a>
+                    <a href="#pulseiras-f">Pulseiras</a>
+                    <a href="#aneis-f">Anéis</a>
+                  </div>
+                  <div class="col-md-3 mega-category">
+                    <h6>Masculino</h6>
+                    <a href="#brincos-m">Brincos</a>
+                    <a href="#colares-m">Colares</a>
+                    <a href="#pulseiras-m">Pulseiras</a>
+                    <a href="#aneis-m">Anéis</a>
+                  </div>
+                  <div class="col-md-3 mega-category">
+                    <h6>Unissex</h6>
+                    <a href="#aliancas">Alianças</a>
+                    <a href="#pingentes">Pingentes</a>
+                    <a href="#correntes">Correntes</a>
+                    <a href="#conjuntos">Conjuntos</a>
+                  </div>
+                  <div class="col-md-3 mega-category">
+                    <h6>Coleções</h6>
+                    <a href="#nova-colecao">Nova Coleção</a>
+                    <a href="#mais-vendidos">Mais Vendidos</a>
+                    <a href="#promocoes">Promoções</a>
+                    <a href="#edicao-limitada">Edição Limitada</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+        </ul>
+
+        <!-- Desktop Right Items -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="nav-item dropdown">
+            <a class="nav-link" href="#" data-bs-toggle="dropdown">
+              <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="fas fa-sign-in-alt me-2"></i>Login
+              </a>
+              <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">
+                <i class="fas fa-user-plus me-2"></i>Registrar
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-heart me-2"></i>Wishlist
+                <span class="badge bg-danger ms-2">3</span>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-history me-2"></i>Histórico
+              </a>
+            </div>
+          </div>
+          
+          <div class="nav-item position-relative nav-cart d-none d-lg-block">
+            <button class="btn nav-link" onclick="toggleCart()">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SLIDER -->
+  <section id="home" class="hero-slider">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1605101100278-5d4d7e5c2c3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="hero-title">Coleção Exclusiva 2025</h1>
+            <p class="hero-subtitle">Descubra joias únicas em prata 925, feitas para durar uma vida inteira</p>
+            <a href="#produtos" class="btn btn-hero">Comprar Agora</a>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="hero-title">Prata Autêntica</h1>
+            <p class="hero-subtitle">Garantia de qualidade e autenticidade em cada peça</p>
+            <a href="#sobre" class="btn btn-hero">Saiba Mais</a>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="hero-title">Presentes Especiais</h1>
+            <p class="hero-subtitle">Encontre o presente perfeito para quem você ama</p>
+            <a href="#categorias" class="btn btn-hero">Ver Categorias</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h4>Garantia Vitalícia</h4>
+            <p>Todas as nossas peças possuem garantia vitalícia contra defeitos de fabricação</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h4>Entrega Rápida</h4>
+            <p>Entregamos em todo Brasil em até 7 dias úteis com frete grátis acima de R$ 299</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-undo-alt"></i>
+            </div>
+            <h4>Troca Fácil</h4>
+            <p>Não gostou? Faça a troca em até 30 dias sem complicação</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS DESTAQUE -->
+  <section id="categorias" class="categories-section">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up">Categorias em Destaque</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="category-card" onclick="filterByCategory('feminino')">
+            <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Feminino" class="category-image">
+            <div class="category-overlay">
+              <h3 class="category-title">Feminino</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="category-card" onclick="filterByCategory('masculino')">
+            <img src="https://images.unsplash.com/photo-1588514912908-8f5891714f8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Masculino" class="category-image">
+            <div class="category-overlay">
+              <h3 class="category-title">Masculino</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="category-card" onclick="filterByCategory('unissex')">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Unissex" class="category-image">
+            <div class="category-overlay">
+              <h3 class="category-title">Unissex</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS COM FILTRO AVANÇADO -->
+  <section id="produtos" class="py-5">
+    <div class="container">
+      <div class="products-header">
+        <h2 data-aos="fade-up">Nossos Produtos</h2>
+        <div class="sort-filter" data-aos="fade-up">
+          <select class="sort-select" onchange="sortProducts(this.value)">
+            <option value="relevancia">Ordenar por: Relevância</option>
+            <option value="preco-asc">Preço: Menor para Maior</option>
+            <option value="preco-desc">Preço: Maior para Menor</option>
+            <option value="nome">Nome: A-Z</option>
+            <option value="avaliacao">Melhores Avaliações</option>
+            <option value="novos">Mais Recentes</option>
+          </select>
+          
+          <div class="view-toggle">
+            <button class="view-btn active" onclick="changeView('grid')">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" onclick="changeView('list')">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtros Avançados -->
+      <div class="row mb-5" data-aos="fade-up">
+        <div class="col-12">
+          <div class="card p-3">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label class="form-label">Preço</label>
+                <input type="range" class="form-range" min="0" max="1000" value="500" onchange="updatePriceValue(this.value)">
+                <div class="d-flex justify-content-between">
+                  <span>R$ 0</span>
+                  <span id="priceValue">R$ 500</span>
+                  <span>R$ 1000</span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Material</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="prata925" checked>
+                  <label class="form-check-label" for="prata925">
+                    Prata 925
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="dourado">
+                  <label class="form-check-label" for="dourado">
+                    Banho a Ouro
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Avaliação</label>
+                <div class="star-filter">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ratingFilter" id="rating4" checked>
+                    <label class="form-check-label" for="rating4">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ratingFilter" id="rating3">
+                    <label class="form-check-label" for="rating3">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <span class="text-muted">e acima</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Disponibilidade</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="stockFilter" checked>
+                  <label class="form-check-label" for="stockFilter">
+                    Apenas em estoque
+                  </label>
+                </div>
+                <button class="btn btn-primary mt-2 w-100" onclick="applyFilters()">
+                  <i class="fas fa-filter me-2"></i>Aplicar Filtros
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#home">Início</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Produtos</li>
+        </ol>
+      </nav>
+
+      <!-- Grid de Produtos -->
+      <div class="products-grid grid-view" id="productsGrid">
+        <!-- Produtos carregados via JS -->
+      </div>
+
+      <!-- Paginação -->
+      <nav aria-label="Page navigation" class="mt-5" data-aos="fade-up">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up">O Que Nossos Clientes Dizem</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">ML</div>
+              <div>
+                <h5 class="mb-0">Maria Luiza</h5>
+                <small class="text-muted">Há 2 dias</small>
+              </div>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Comprei um colar para minha mãe e ela amou! A qualidade da prata é impressionante e o brilho é lindo."</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">RS</div>
+              <div>
+                <h5 class="mb-0">Roberto Silva</h5>
+                <small class="text-muted">Há 1 semana</small>
+              </div>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p>"A pulseira masculina que comprei é exatamente como nas fotos. Muito bem feita e de boa qualidade."</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">AP</div>
+              <div>
+                <h5 class="mb-0">Ana Paula</h5>
+                <small class="text-muted">Há 3 semanas</small>
+              </div>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Ótimo atendimento! A entrega foi rápida e o produto chegou muito bem embalado. Com certeza voltarei a comprar."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="blog-section">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up">Últimas do Blog</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1580554530778-ca36943939b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Como Cuidar da Prata" class="blog-image">
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar me-1"></i>15 Mar 2025</span>
+                <span><i class="far fa-eye me-1"></i>1.2k visualizações</span>
+              </div>
+              <h5>Guia Completo: Como Cuidar das Suas Joias em Prata</h5>
+              <p class="text-muted">Aprenda a manter suas joias em prata sempre brilhando como novas.</p>
+              <a href="#" class="btn btn-outline-primary">Ler Mais</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1603561596112-0a132b757442?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Tendências 2025" class="blog-image">
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar me-1"></i>10 Mar 2025</span>
+                <span><i class="far fa-eye me-1"></i>2.5k visualizações</span>
+              </div>
+              <h5>Tendências de Joias em Prata para 2025</h5>
+              <p class="text-muted">Descubra as tendências que vão dominar o mundo das joias este ano.</p>
+              <a href="#" class="btn btn-outline-primary">Ler Mais</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Escolhendo Presentes" class="blog-image">
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar me-1"></i>05 Mar 2025</span>
+                <span><i class="far fa-eye me-1"></i>3.1k visualizações</span>
+              </div>
+              <h5>Como Escolher a Joia Perfeita para Presentear</h5>
+              <p class="text-muted">Dicas infalíveis para acertar na escolha da joia ideal.</p>
+              <a href="#" class="btn btn-outline-primary">Ler Mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM FEED -->
+  <section class="instagram-section">
+    <div class="container">
+      <h2 class="text-center mb-4" data-aos="fade-up">Siga-nos no Instagram</h2>
+      <p class="text-center text-muted mb-5" data-aos="fade-up">@_.silversoull</p>
+      <div class="instagram-grid">
+        <div class="instagram-item" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="">
+          <div class="instagram-overlay">
+            <i class="fab fa-instagram fa-2x"></i>
+          </div>
+        </div>
+        <div class="instagram-item" data-aos="fade-up" data-aos-delay="50">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="">
+          <div class="instagram-overlay">
+            <i class="fab fa-instagram fa-2x"></i>
+          </div>
+        </div>
+        <div class="instagram-item" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1605101100278-5d4d7e5c2c3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="">
+          <div class="instagram-overlay">
+            <i class="fab fa-instagram fa-2x"></i>
+          </div>
+        </div>
+        <div class="instagram-item" data-aos="fade-up" data-aos-delay="150">
+          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="">
+          <div class="instagram-overlay">
+            <i class="fab fa-instagram fa-2x"></i>
+          </div>
+        </div>
+        <div class="instagram-item" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="">
+          <div class="instagram-overlay">
+            <i class="fab fa-instagram fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER AVANÇADO -->
+  <footer class="footer-main">
+    <div class="container">
+      <!-- Newsletter -->
+      <div class="footer-newsletter" data-aos="fade-up">
+        <h3 class="text-white">Receba Ofertas Exclusivas</h3>
+        <p class="text-white-50">Inscreva-se para receber 10% OFF na primeira compra</p>
+        <form class="newsletter-form d-flex">
+          <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
+          <button type="submit" class="newsletter-btn">Inscrever</button>
+        </form>
+      </div>
+
+      <!-- Main Footer -->
+      <div class="row g-5">
+        <div class="col-lg-4" data-aos="fade-up">
+          <h4 class="text-white mb-4">
+            <i class="fas fa-gem me-2"></i>Soul Silver
+          </h4>
+          <p class="text-white-50">Joias em prata com design minimalista para pessoas que valorizam elegância e autenticidade.</p>
+          <div class="payment-methods">
+            <div class="payment-icon">
+              <i class="fab fa-cc-visa"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fab fa-cc-mastercard"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fab fa-cc-paypal"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fab fa-cc-amazon-pay"></i>
+            </div>
+            <div class="payment-icon">
+              <i class="fab fa-pix"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <h5 class="text-white mb-4">Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home" class="text-white-50 text-decoration-none mb-2 d-block">Início</a></li>
+            <li><a href="#produtos" class="text-white-50 text-decoration-none mb-2 d-block">Produtos</a></li>
+            <li><a href="#sobre" class="text-white-50 text-decoration-none mb-2 d-block">Sobre</a></li>
+            <li><a href="#blog" class="text-white-50 text-decoration-none mb-2 d-block">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <h5 class="text-white mb-4">Suporte</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white-50 text-decoration-none mb-2 d-block">Central de Ajuda</a></li>
+            <li><a href="#" class="text-white-50 text-decoration-none mb-2 d-block">Política de Entrega</a></li>
+            <li><a href="#" class="text-white-50 text-decoration-none mb-2 d-block">Trocas e Devoluções</a></li>
+            <li><a href="#" class="text-white-50 text-decoration-none mb-2 d-block">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <h5 class="text-white mb-4">Contato</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2">
+              <i class="fas fa-envelope me-2"></i>contato@soulsilver.com.br
+            </li>
+            <li class="mb-2">
+              <i class="fas fa-phone me-2"></i>(11) 99999-9999
+            </li>
+            <li class="mb-2">
+              <i class="fas fa-map-marker-alt me-2"></i>São Paulo, SP
+            </li>
+            <li class="mb-2">
+              <i class="fab fa-whatsapp me-2"></i>(11) 99999-9999
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5 pt-4 border-top border-white-10">
+        <p class="text-white-50 mb-0">
+          © 2025 Soul Silver. Todos os direitos reservados. CNPJ: 00.000.000/0000-00
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modais Bootstrap -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Criar Conta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Nome Completo</label>
+              <input type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="registerPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Criar Conta</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <script>
+    // Inicializar AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Inicializar Swiper
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // Dados dos produtos
+    const products = [
+      {
+        id: 1,
+        name: "Brincos Argola Prata 925 - Grande",
+        category: ["brincos", "feminino"],
+        price: 129.90,
+        originalPrice: 159.90,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "feminino",
+        rating: 4.5,
+        stock: 15,
+        description: "Argolas elegantes em prata 925, perfeitas para looks do dia a dia ou ocasiões especiais.",
+        details: "Feitos à mão com prata 925, esses brincos são hipoalergênicos e resistentes à oxidação. Diâmetro: 4cm.",
+        material: "Prata 925",
+        weight: "8g",
+        dimensions: "4cm x 4cm",
+        sku: "BR-001-F"
+      },
+      {
+        id: 2,
+        name: "Pulseira Masculina Prata - Robust",
+        category: ["pulseiras", "masculino"],
+        price: 189.90,
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "masculino",
+        rating: 4.8,
+        stock: 8,
+        description: "Pulseira robusta em prata 925 com fechamento de segurança, ideal para homens.",
+        details: "Design moderno com acabamento em escovado, tamanho ajustável de 18-22cm.",
+        material: "Prata 925",
+        weight: "15g",
+        dimensions: "Ajustável",
+        sku: "PU-001-M"
+      },
+      {
+        id: 3,
+        name: "Colar Unissex Prata - Minimalist",
+        category: ["colares", "unissex"],
+        price: 219.90,
+        originalPrice: 259.90,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "unissex",
+        rating: 4.7,
+        stock: 12,
+        description: "Colar minimalista com pingente geométrico, perfeito para todos os estilos.",
+        details: "Corrente de 50cm com fechamento de segurança, pingente em prata maciça de 2cm.",
+        material: "Prata 925",
+        weight: "12g",
+        dimensions: "50cm",
+        sku: "CO-001-U"
+      },
+      {
+        id: 4,
+        name: "Brincos Stud Prata - Trio Set",
+        category: ["brincos", "feminino"],
+        price: 89.90,
+        image: "https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "feminino",
+        rating: 4.3,
+        stock: 25,
+        description: "Conjunto com 3 pares de brincos stud em diferentes tamanhos.",
+        details: "Inclui studs de 3mm, 5mm e 7mm. Fechamento de rosca para maior segurança.",
+        material: "Prata 925",
+        weight: "6g",
+        dimensions: "Varia",
+        sku: "BR-002-F"
+      },
+      {
+        id: 5,
+        name: "Pulseira Feminina Delicada - Chain",
+        category: ["pulseiras", "feminino"],
+        price: 149.90,
+        image: "https://images.unsplash.com/photo-1588514912908-8f5891714f8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "feminino",
+        rating: 4.6,
+        stock: 5,
+        description: "Pulseira delicada com corrente fina e detalhe em prata.",
+        details: "Corrente de 18cm com fechamento de caranguejo e pingente de coração.",
+        material: "Prata 925",
+        weight: "7g",
+        dimensions: "18cm",
+        sku: "PU-002-F"
+      },
+      {
+        id: 6,
+        name: "Colar Masculino Prata - Geometric",
+        category: ["colares", "masculino"],
+        price: 199.90,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "masculino",
+        rating: 4.4,
+        stock: 0,
+        description: "Colar masculino em prata com pingente geométrico robusto.",
+        details: "Corrente de 60cm em prata 925, pingente triangular com acabamento escovado.",
+        material: "Prata 925",
+        weight: "18g",
+        dimensions: "60cm",
+        sku: "CO-002-M"
+      },
+      {
+        id: 7,
+        name: "Brincos Masculinos Prata - Barbell",
+        category: ["brincos", "masculino"],
+        price: 119.90,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "masculino",
+        rating: 4.9,
+        stock: 20,
+        description: "Brincos barbell em prata com design contemporâneo.",
+        details: "Par de brincos com haste de 8mm e bolas de 6mm. Fechamento de rosca.",
+        material: "Prata 925",
+        weight: "10g",
+        dimensions: "1.4cm",
+        sku: "BR-003-M"
+      },
+      {
+        id: 8,
+        name: "Pulseira Unissex Prata - Infinity",
+        category: ["pulseiras", "unissex"],
+        price: 169.90,
+        originalPrice: 199.90,
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        gender: "unissex",
+        rating: 4.7,
+        stock: 18,
+        description: "Pulseira unissex com símbolo infinito em prata maciça.",
+        details: "Tamanho ajustável de 17-21cm. Perfeita para presentear.",
+        material: "Prata 925",
+        weight: "11g",
+        dimensions: "Ajustável",
+        sku: "PU-003-U"
+      }
+    ];
+
+    // Estado da aplicação
+    let cart = JSON.parse(localStorage.getItem('soulSilverCart')) || [];
+    let wishlist = JSON.parse(localStorage.getItem('soulSilverWishlist')) || [];
+    let currentView = 'grid';
+    let currentFilters = {
+      category: 'all',
+      priceMax: 500,
+      material: ['prata925'],
+      rating: 5,
+      inStock: true
+    };
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProducts();
+      updateCartCount();
+      updateWishlistCount();
+      setupEventListeners();
+      loadUserPreferences();
+    });
+
+    // Renderizar produtos
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const filteredProducts = filterProducts();
+      
+      grid.innerHTML = filteredProducts.map(product => `
+        <div class="product-card" data-aos="fade-up">
+          <div class="product-image-container position-relative">
+            <button class="wishlist-btn ${wishlist.includes(product.id) ? 'active' : ''}" 
+                    onclick="toggleWishlist(${product.id})">
+              <i class="${wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart"></i>
+            </button>
+            <button class="compare-btn" onclick="addToCompare(${product.id})" data-tooltip="Comparar">
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+            
+            ${product.originalPrice ? '<span class="product-badge badge-sale">-${Math.round((1 - product.price/product.originalPrice)*100)}%</span>' : ''}
+            ${product.id <= 3 ? '<span class="product-badge badge-new">Novo</span>' : ''}
+            
+            <img src="${product.image}" alt="${product.name}" class="product-image" 
+                 onclick="showQuickView(${product.id})">
+            
+            <div class="stock-status ${product.stock > 10 ? 'in-stock' : product.stock > 0 ? 'low-stock' : 'out-of-stock'}">
+              ${product.stock > 10 ? 'Em estoque' : product.stock > 0 ? 'Últimas unidades' : 'Esgotado'}
+            </div>
+            ${product.stock > 0 && product.stock <= 20 ? `
+              <div class="stock-progress mt-2">
+                <div class="stock-progress-bar" style="width: ${(product.stock/20)*100}%"></div>
+              </div>
+            ` : ''}
+          </div>
+          <div class="product-content">
+            <h5 class="product-title" onclick="showQuickView(${product.id})" style="cursor: pointer;">
+              ${product.name}
+            </h5>
+            <p class="product-description">${product.description}</p>
+            
+            <div class="product-rating mb-2">
+              ${generateStars(product.rating)}
+              <small class="text-muted ms-1">(${product.rating})</small>
+            </div>
+            
+            <div class="product-price mb-3">
+              ${product.originalPrice ? `
+                <span class="original-price">R$ ${product.originalPrice.toFixed(2)}</span>
+                <span class="current-price text-danger">R$ ${product.price.toFixed(2)}</span>
+              ` : `
+                <span class="current-price">R$ ${product.price.toFixed(2)}</span>
+              `}
+            </div>
+            
+            <div class="product-actions">
+              <button class="btn-details" onclick="showQuickView(${product.id})">
+                <i class="far fa-eye me-1"></i>Ver Detalhes
+              </button>
+              <button class="btn-cart" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
+                <i class="fas fa-shopping-cart me-1"></i>${product.stock === 0 ? 'Esgotado' : 'Comprar'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Gerar estrelas
+    function generateStars(rating) {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(rating)) {
+          stars += '<i class="fas fa-star text-warning"></i>';
+        } else if (i === Math.ceil(rating) && !Number.isInteger(rating)) {
+          stars += '<i class="fas fa-star-half-alt text-warning"></i>';
+        } else {
+          stars += '<i class="far fa-star text-warning"></i>';
+        }
+      }
+      return stars;
+    }
+
+    // Filtrar produtos
+    function filterProducts() {
+      return products.filter(product => {
+        // Filtro de categoria
+        if (currentFilters.category !== 'all' && !product.category.includes(currentFilters.category) && product.gender !== currentFilters.category) {
+          return false;
+        }
+        
+        // Filtro de preço
+        if (product.price > currentFilters.priceMax) {
+          return false;
+        }
+        
+        // Filtro de estoque
+        if (currentFilters.inStock && product.stock === 0) {
+          return false;
+        }
+        
+        // Filtro de avaliação
+        if (product.rating < currentFilters.rating) {
+          return false;
+        }
+        
+        return true;
+      });
+    }
+
+    // Ordenar produtos
+    function sortProducts(criteria) {
+      const filteredProducts = filterProducts();
+      
+      switch(criteria) {
+        case 'preco-asc':
+          filteredProducts.sort((a, b) => a.price - b.price);
+          break;
+        case 'preco-desc':
+          filteredProducts.sort((a, b) => b.price - a.price);
+          break;
+        case 'nome':
+          filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'avaliacao':
+          filteredProducts.sort((a, b) => b.rating - a.rating);
+          break;
+        case 'novos':
+          filteredProducts.sort((a, b) => b.id - a.id);
+          break;
+      }
+      
+      renderFilteredProducts(filteredProducts);
+    }
+
+    // Mudar visualização
+    function changeView(view) {
+      currentView = view;
+      const grid = document.getElementById('productsGrid');
+      const buttons = document.querySelectorAll('.view-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      grid.classList.remove('grid-view', 'list-view');
+      grid.classList.add(`${view}-view`);
+    }
+
+    // Atualizar valor do preço
+    function updatePriceValue(value) {
+      document.getElementById('priceValue').textContent = `R$ ${value}`;
+      currentFilters.priceMax = parseInt(value);
+    }
+
+    // Aplicar filtros
+    function applyFilters() {
+      currentFilters.material = [];
+      if (document.getElementById('prata925').checked) currentFilters.material.push('prata925');
+      if (document.getElementById('dourado').checked) currentFilters.material.push('dourado');
+      
+      currentFilters.inStock = document.getElementById('stockFilter').checked;
+      
+      const ratingRadios = document.querySelectorAll('input[name="ratingFilter"]');
+      ratingRadios.forEach(radio => {
+        if (radio.checked) {
+          currentFilters.rating = parseInt(radio.id.replace('rating', ''));
+        }
+      });
+      
+      renderProducts();
+      showToast('Filtros aplicados com sucesso!');
+    }
+
+    // Mostrar Quick View
+    function showQuickView(productId) {
+      const product = products.find(p => p.id === productId);
+      const modal = document.querySelector('.quick-view-modal');
+      const body = modal.querySelector('.quick-view-body');
+      
+      body.innerHTML = `
+        <div class="row">
+          <div class="col-md-6">
+            <img src="${product.image}" alt="${product.name}" class="img-fluid rounded">
+          </div>
+          <div class="col-md-6">
+            <h3>${product.name}</h3>
+            <div class="d-flex align-items-center mb-3">
+              <div class="product-rating">
+                ${generateStars(product.rating)}
+              </div>
+              <span class="ms-2 text-muted">${product.rating}/5 (42 avaliações)</span>
+            </div>
+            
+            <div class="mb-4">
+              ${product.originalPrice ? `
+                <del class="text-muted">R$ ${product.originalPrice.toFixed(2)}</del>
+                <h2 class="text-danger d-inline ms-2">R$ ${product.price.toFixed(2)}</h2>
+              ` : `
+                <h2>R$ ${product.price.toFixed(2)}</h2>
+              `}
+              <span class="badge bg-success ms-2">${Math.round((1 - product.price/(product.originalPrice || product.price))*100)}% OFF</span>
+            </div>
+            
+            <p class="text-muted">${product.details}</p>
+            
+            <div class="mb-4">
+              <strong>SKU:</strong> ${product.sku}<br>
+              <strong>Material:</strong> ${product.material}<br>
+              <strong>Peso:</strong> ${product.weight}<br>
+              <strong>Dimensões:</strong> ${product.dimensions}
+            </div>
+            
+            <div class="stock-status ${product.stock > 10 ? 'in-stock' : product.stock > 0 ? 'low-stock' : 'out-of-stock'} mb-3">
+              <i class="fas fa-box me-1"></i>
+              ${product.stock > 10 ? 'Disponível' : product.stock > 0 ? 'Últimas unidades' : 'Esgotado'}
+              ${product.stock > 0 ? ` (${product.stock} disponíveis)` : ''}
+            </div>
+            
+            <div class="d-flex gap-3 mb-4">
+              <div class="input-group" style="max-width: 150px;">
+                <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(-1)">-</button>
+                <input type="text" class="form-control text-center" value="1" id="quickViewQuantity">
+                <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(1)">+</button>
+              </div>
+              <button class="btn btn-primary flex-grow-1" onclick="addToCartFromQuickView(${product.id})">
+                <i class="fas fa-shopping-cart me-2"></i>
+                Adicionar ao Carrinho
+              </button>
+            </div>
+            
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-secondary" onclick="toggleWishlist(${product.id})">
+                <i class="${wishlist.includes(product.id) ? 'fas' : 'far'} fa-heart me-2"></i>
+                ${wishlist.includes(product.id) ? 'Remover da' : 'Adicionar à'} Lista de Desejos
+              </button>
+              <button class="btn btn-outline-secondary" onclick="addToCompare(${product.id})">
+                <i class="fas fa-exchange-alt me-2"></i>
+                Comparar
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      modal.classList.add('active');
+    }
+
+    // Fechar Quick View
+    function closeQuickView() {
+      document.querySelector('.quick-view-modal').classList.remove('active');
+    }
+
+    // Adicionar ao carrinho
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const existingItem = cart.find(item => item.id === productId);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          ...product,
+          quantity: 1
+        });
+      }
+      
+      updateCartCount();
+      saveCart();
+      showToast(`${product.name} adicionado ao carrinho!`);
+    }
+
+    // Atualizar contador do carrinho
+    function updateCartCount() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.querySelectorAll('.cart-badge').forEach(badge => {
+        badge.textContent = totalItems;
+      });
+    }
+
+    // Salvar carrinho no localStorage
+    function saveCart() {
+      localStorage.setItem('soulSilverCart', JSON.stringify(cart));
+    }
+
+    // Alternar wishlist
+    function toggleWishlist(productId) {
+      const index = wishlist.indexOf(productId);
+      
+      if (index > -1) {
+        wishlist.splice(index, 1);
+        showToast('Removido da lista de desejos');
+      } else {
+        wishlist.push(productId);
+        showToast('Adicionado à lista de desejos');
+      }
+      
+      updateWishlistCount();
+      saveWishlist();
+      renderProducts();
+    }
+
+    // Atualizar contador da wishlist
+    function updateWishlistCount() {
+      const wishlistBadge = document.querySelector('.dropdown-item .badge');
+      if (wishlistBadge) {
+        wishlistBadge.textContent = wishlist.length;
+      }
+    }
+
+    // Salvar wishlist
+    function saveWishlist() {
+      localStorage.setItem('soulSilverWishlist', JSON.stringify(wishlist));
+    }
+
+    // Mostrar toast
+    function showToast(message) {
+      // Implementação do toast
+      alert(message); // Substituir por toast real
+    }
+
+    // Dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.querySelector('.theme-toggle i');
+      if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Carregar preferências do usuário
+    function loadUserPreferences() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+      }
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+      // Fechar modais com ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeQuickView();
+          document.querySelector('.quick-view-modal').classList.remove('active');
+        }
+      });
+      
+      // Fechar modais ao clicar fora
+      document.querySelector('.quick-view-modal').addEventListener('click', (e) => {
+        if (e.target.classList.contains('quick-view-modal')) {
+          closeQuickView();
+        }
+      });
+    }
+
+    // Inicializar tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-tooltip]');
+    tooltipTriggerList.forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        // Implementação de tooltip
+      });
+    });
+
+    // Exemplo de filtro por categoria
+    function filterByCategory(category) {
+      currentFilters.category = category;
+      renderProducts();
+      document.querySelector(`[data-category="${category}"]`)?.classList.add('active');
+      showToast(`Mostrando ${category === 'feminino' ? 'produtos femininos' : category === 'masculino' ? 'produtos masculinos' : 'produtos unissex'}`);
+    }
+  </script>
+</body>
+</html>
